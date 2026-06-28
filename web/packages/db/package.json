@@ -1,0 +1,32 @@
+{
+  "name": "@cetus/db",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:studio": "drizzle-kit studio",
+    "db:migrate": "drizzle-kit migrate"
+  },
+  "dependencies": {
+    "@cetus/env": "workspace:*",
+    "dotenv": "catalog:",
+    "drizzle-orm": "1.0.0-rc.4",
+    "pg": "^8.17.1",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@cetus/config": "workspace:*",
+    "@types/pg": "^8.16.0",
+    "drizzle-kit": "1.0.0-rc.4",
+    "tsx": "^4.22.4",
+    "typescript": "catalog:"
+  }
+}
