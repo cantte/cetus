@@ -2,35 +2,22 @@
   "version": "8",
   "dialect": "postgres",
   "id": "a1670695-1153-4d3f-b76b-bdeea74b50fb",
-  "prevIds": [
-    "faf5114f-4005-4987-8000-5d9672851f5d"
-  ],
+  "prevIds": ["faf5114f-4005-4987-8000-5d9672851f5d"],
   "ddl": [
     {
-      "values": [
-        "active",
-        "inactive"
-      ],
+      "values": ["active", "inactive"],
       "name": "business_vertical_status",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "active",
-        "inactive"
-      ],
+      "values": ["active", "inactive"],
       "name": "catalog_template_status",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "active",
-        "inactive",
-        "suspended",
-        "archived"
-      ],
+      "values": ["active", "inactive", "suspended", "archived"],
       "name": "tenant_status",
       "entityType": "enums",
       "schema": "public"
@@ -1534,14 +1521,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "schemaTo": "public",
       "tableTo": "user",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
       "name": "account_user_id_user_id_fkey",
@@ -1551,14 +1534,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "schemaTo": "public",
       "tableTo": "user",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
       "name": "session_user_id_user_id_fkey",
@@ -1568,14 +1547,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "vertical_id"
-      ],
+      "columns": ["vertical_id"],
       "schemaTo": "public",
       "tableTo": "business_verticals",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "RESTRICT",
       "name": "catalog_templates_vertical_id_business_verticals_id_fkey",
@@ -1585,14 +1560,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "tenant_catalog_settings_tenant_id_tenants_id_fkey",
@@ -1602,14 +1573,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "vertical_id"
-      ],
+      "columns": ["vertical_id"],
       "schemaTo": "public",
       "tableTo": "business_verticals",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "RESTRICT",
       "name": "tenant_catalog_settings_vertical_id_business_verticals_id_fkey",
@@ -1619,14 +1586,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "catalog_template_id"
-      ],
+      "columns": ["catalog_template_id"],
       "schemaTo": "public",
       "tableTo": "catalog_templates",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "SET NULL",
       "name": "tenant_catalog_settings_vwdmxEGjQBkX_fkey",
@@ -1635,9 +1598,7 @@
       "table": "tenant_catalog_settings"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "account_pkey",
       "schema": "public",
@@ -1645,9 +1606,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "jwks_pkey",
       "schema": "public",
@@ -1655,9 +1614,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "session_pkey",
       "schema": "public",
@@ -1665,9 +1622,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "user_pkey",
       "schema": "public",
@@ -1675,9 +1630,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "verification_pkey",
       "schema": "public",
@@ -1685,9 +1638,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "business_verticals_pkey",
       "schema": "public",
@@ -1695,9 +1646,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "catalog_templates_pkey",
       "schema": "public",
@@ -1705,9 +1654,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "nameExplicit": false,
       "name": "tenant_catalog_settings_pkey",
       "schema": "public",
@@ -1715,9 +1662,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "tenants_pkey",
       "schema": "public",
@@ -1726,9 +1671,7 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "token"
-      ],
+      "columns": ["token"],
       "nullsNotDistinct": false,
       "name": "session_token_key",
       "schema": "public",
@@ -1737,9 +1680,7 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "email"
-      ],
+      "columns": ["email"],
       "nullsNotDistinct": false,
       "name": "user_email_key",
       "schema": "public",

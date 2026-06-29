@@ -24,10 +24,7 @@ export const businessVerticalStatusEnum = pgEnum("business_vertical_status", [
   "inactive",
 ]);
 
-export const catalogTemplateStatusEnum = pgEnum("catalog_template_status", [
-  "active",
-  "inactive",
-]);
+export const catalogTemplateStatusEnum = pgEnum("catalog_template_status", ["active", "inactive"]);
 
 export type DefaultCategoryTemplate = {
   name: string;
@@ -40,14 +37,7 @@ export type DefaultCategoryTemplate = {
 export type DefaultAttributeTemplate = {
   code: string;
   name: string;
-  type:
-    | "string"
-    | "number"
-    | "boolean"
-    | "enum"
-    | "multi_enum"
-    | "date"
-    | "json";
+  type: "string" | "number" | "boolean" | "enum" | "multi_enum" | "date" | "json";
   appliesTo: "product" | "variant" | "both";
   required?: boolean;
   filterable?: boolean;
@@ -110,7 +100,7 @@ export const tenants = snakeCase.table(
   (table) => [
     uniqueIndex("tenants_slug_idx").on(table.slug),
     index("tenants_status_idx").on(table.status),
-  ]
+  ],
 );
 
 export const businessVerticals = snakeCase.table(
@@ -133,7 +123,7 @@ export const businessVerticals = snakeCase.table(
   (table) => [
     uniqueIndex("business_verticals_code_idx").on(table.code),
     index("business_verticals_status_idx").on(table.status),
-  ]
+  ],
 );
 
 export const catalogTemplates = snakeCase.table(
@@ -189,16 +179,13 @@ export const catalogTemplates = snakeCase.table(
   },
   (table) => [
     index("catalog_templates_vertical_id_idx").on(table.verticalId),
-    index("catalog_templates_vertical_default_idx").on(
-      table.verticalId,
-      table.isDefault
-    ),
+    index("catalog_templates_vertical_default_idx").on(table.verticalId, table.isDefault),
     uniqueIndex("catalog_templates_vertical_name_idx").on(
       table.verticalId,
       table.name,
-      table.version
+      table.version,
     ),
-  ]
+  ],
 );
 
 export const tenantCatalogSettings = snakeCase.table(
@@ -246,8 +233,6 @@ export const tenantCatalogSettings = snakeCase.table(
   },
   (table) => [
     index("tenant_catalog_settings_vertical_id_idx").on(table.verticalId),
-    index("tenant_catalog_settings_template_id_idx").on(
-      table.catalogTemplateId
-    ),
-  ]
+    index("tenant_catalog_settings_template_id_idx").on(table.catalogTemplateId),
+  ],
 );

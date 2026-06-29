@@ -17,11 +17,7 @@ import type { AnyPgColumn } from "drizzle-orm/pg-core";
 
 import { tenants } from "./tenants";
 
-export const recordStatusEnum = pgEnum("record_status", [
-  "active",
-  "inactive",
-  "archived",
-]);
+export const recordStatusEnum = pgEnum("record_status", ["active", "inactive", "archived"]);
 
 export const productStatusEnum = pgEnum("product_status", [
   "draft",
@@ -36,11 +32,7 @@ export const productVisibilityEnum = pgEnum("product_visibility", [
   "internal_only",
 ]);
 
-export const variantStatusEnum = pgEnum("variant_status", [
-  "active",
-  "inactive",
-  "archived",
-]);
+export const variantStatusEnum = pgEnum("variant_status", ["active", "inactive", "archived"]);
 
 export const attributeTypeEnum = pgEnum("attribute_type", [
   "string",
@@ -58,13 +50,7 @@ export const attributeAppliesToEnum = pgEnum("attribute_applies_to", [
   "both",
 ]);
 
-export const unitTypeEnum = pgEnum("unit_type", [
-  "unit",
-  "weight",
-  "volume",
-  "length",
-  "package",
-]);
+export const unitTypeEnum = pgEnum("unit_type", ["unit", "weight", "volume", "length", "package"]);
 
 export const imageTypeEnum = pgEnum("image_type", [
   "main",
@@ -83,11 +69,7 @@ export const imageStatusEnum = pgEnum("image_status", [
   "failed",
 ]);
 
-export const priceListStatusEnum = pgEnum("price_list_status", [
-  "active",
-  "inactive",
-  "archived",
-]);
+export const priceListStatusEnum = pgEnum("price_list_status", ["active", "inactive", "archived"]);
 
 export const salesChannelTypeEnum = pgEnum("sales_channel_type", [
   "web_store",
@@ -123,10 +105,13 @@ export const inventoryMovementTypeEnum = pgEnum("inventory_movement_type", [
   "manual_correction",
 ]);
 
-export const inventoryReservationStatusEnum = pgEnum(
-  "inventory_reservation_status",
-  ["active", "confirmed", "expired", "released", "cancelled"]
-);
+export const inventoryReservationStatusEnum = pgEnum("inventory_reservation_status", [
+  "active",
+  "confirmed",
+  "expired",
+  "released",
+  "cancelled",
+]);
 
 export type ProductAttributesJson = Record<string, unknown>;
 
@@ -190,13 +175,10 @@ export const unitDefinitions = snakeCase.table(
       .notNull(),
   },
   (table) => [
-    uniqueIndex("unit_definitions_tenant_code_idx").on(
-      table.tenantId,
-      table.code
-    ),
+    uniqueIndex("unit_definitions_tenant_code_idx").on(table.tenantId, table.code),
     index("unit_definitions_tenant_idx").on(table.tenantId),
     index("unit_definitions_status_idx").on(table.status),
-  ]
+  ],
 );
 
 export const categories = snakeCase.table(
@@ -236,7 +218,7 @@ export const categories = snakeCase.table(
     index("categories_tenant_idx").on(table.tenantId),
     index("categories_parent_idx").on(table.parentId),
     index("categories_status_idx").on(table.status),
-  ]
+  ],
 );
 
 export const productAttributeDefinitions = snakeCase.table(
@@ -285,12 +267,12 @@ export const productAttributeDefinitions = snakeCase.table(
     uniqueIndex("product_attribute_definitions_tenant_category_code_idx").on(
       table.tenantId,
       table.categoryId,
-      table.code
+      table.code,
     ),
     index("product_attribute_definitions_tenant_idx").on(table.tenantId),
     index("product_attribute_definitions_category_idx").on(table.categoryId),
     index("product_attribute_definitions_code_idx").on(table.code),
-  ]
+  ],
 );
 
 export const products = snakeCase.table(
@@ -345,7 +327,7 @@ export const products = snakeCase.table(
     index("products_category_idx").on(table.categoryId),
     index("products_status_idx").on(table.status),
     index("products_visibility_idx").on(table.visibility),
-  ]
+  ],
 );
 
 export const productVariants = snakeCase.table(
@@ -413,19 +395,13 @@ export const productVariants = snakeCase.table(
     deletedAt: timestamp({ withTimezone: true }),
   },
   (table) => [
-    uniqueIndex("product_variants_tenant_sku_idx").on(
-      table.tenantId,
-      table.sku
-    ),
+    uniqueIndex("product_variants_tenant_sku_idx").on(table.tenantId, table.sku),
     index("product_variants_tenant_idx").on(table.tenantId),
     index("product_variants_product_idx").on(table.productId),
     index("product_variants_status_idx").on(table.status),
     index("product_variants_barcode_idx").on(table.barcode),
-    check(
-      "product_variants_unit_quantity_positive",
-      sql`${table.unitQuantity} > 0`
-    ),
-  ]
+    check("product_variants_unit_quantity_positive", sql`${table.unitQuantity} > 0`),
+  ],
 );
 
 export const productImages = snakeCase.table(
@@ -479,12 +455,8 @@ export const productImages = snakeCase.table(
     index("product_images_tenant_idx").on(table.tenantId),
     index("product_images_product_idx").on(table.productId),
     index("product_images_variant_idx").on(table.variantId),
-    index("product_images_primary_idx").on(
-      table.productId,
-      table.variantId,
-      table.isPrimary
-    ),
-  ]
+    index("product_images_primary_idx").on(table.productId, table.variantId, table.isPrimary),
+  ],
 );
 
 export const priceLists = snakeCase.table(
@@ -526,7 +498,7 @@ export const priceLists = snakeCase.table(
     index("price_lists_channel_type_idx").on(table.channelType),
     index("price_lists_priority_idx").on(table.priority),
     index("price_lists_status_idx").on(table.status),
-  ]
+  ],
 );
 
 export const variantPrices = snakeCase.table(
@@ -588,24 +560,21 @@ export const variantPrices = snakeCase.table(
     uniqueIndex("variant_prices_variant_price_list_idx").on(
       table.variantId,
       table.priceListId,
-      table.startsAt
+      table.startsAt,
     ),
     index("variant_prices_tenant_idx").on(table.tenantId),
     index("variant_prices_variant_idx").on(table.variantId),
     index("variant_prices_price_list_idx").on(table.priceListId),
-    check(
-      "variant_prices_regular_price_non_negative",
-      sql`${table.regularPrice} >= 0`
-    ),
+    check("variant_prices_regular_price_non_negative", sql`${table.regularPrice} >= 0`),
     check(
       "variant_prices_sale_price_non_negative",
-      sql`${table.salePrice} IS NULL OR ${table.salePrice} >= 0`
+      sql`${table.salePrice} IS NULL OR ${table.salePrice} >= 0`,
     ),
     check(
       "variant_prices_cost_price_non_negative",
-      sql`${table.costPrice} IS NULL OR ${table.costPrice} >= 0`
+      sql`${table.costPrice} IS NULL OR ${table.costPrice} >= 0`,
     ),
-  ]
+  ],
 );
 
 export const inventoryLocations = snakeCase.table(
@@ -637,13 +606,10 @@ export const inventoryLocations = snakeCase.table(
       .notNull(),
   },
   (table) => [
-    uniqueIndex("inventory_locations_tenant_name_idx").on(
-      table.tenantId,
-      table.name
-    ),
+    uniqueIndex("inventory_locations_tenant_name_idx").on(table.tenantId, table.name),
     index("inventory_locations_tenant_idx").on(table.tenantId),
     index("inventory_locations_status_idx").on(table.status),
-  ]
+  ],
 );
 
 export const inventoryStocks = snakeCase.table(
@@ -713,35 +679,17 @@ export const inventoryStocks = snakeCase.table(
       .notNull(),
   },
   (table) => [
-    uniqueIndex("inventory_stocks_variant_location_idx").on(
-      table.variantId,
-      table.locationId
-    ),
+    uniqueIndex("inventory_stocks_variant_location_idx").on(table.variantId, table.locationId),
     index("inventory_stocks_tenant_idx").on(table.tenantId),
     index("inventory_stocks_variant_idx").on(table.variantId),
     index("inventory_stocks_location_idx").on(table.locationId),
 
-    check(
-      "inventory_stocks_on_hand_non_negative",
-      sql`${table.quantityOnHand} >= 0`
-    ),
-    check(
-      "inventory_stocks_reserved_non_negative",
-      sql`${table.quantityReserved} >= 0`
-    ),
-    check(
-      "inventory_stocks_available_non_negative",
-      sql`${table.quantityAvailable} >= 0`
-    ),
-    check(
-      "inventory_stocks_safety_stock_non_negative",
-      sql`${table.safetyStock} >= 0`
-    ),
-    check(
-      "inventory_stocks_reorder_point_non_negative",
-      sql`${table.reorderPoint} >= 0`
-    ),
-  ]
+    check("inventory_stocks_on_hand_non_negative", sql`${table.quantityOnHand} >= 0`),
+    check("inventory_stocks_reserved_non_negative", sql`${table.quantityReserved} >= 0`),
+    check("inventory_stocks_available_non_negative", sql`${table.quantityAvailable} >= 0`),
+    check("inventory_stocks_safety_stock_non_negative", sql`${table.safetyStock} >= 0`),
+    check("inventory_stocks_reorder_point_non_negative", sql`${table.reorderPoint} >= 0`),
+  ],
 );
 
 export const inventoryMovements = snakeCase.table(
@@ -806,13 +754,10 @@ export const inventoryMovements = snakeCase.table(
     index("inventory_movements_variant_idx").on(table.variantId),
     index("inventory_movements_location_idx").on(table.locationId),
     index("inventory_movements_type_idx").on(table.type),
-    index("inventory_movements_reference_idx").on(
-      table.referenceType,
-      table.referenceId
-    ),
+    index("inventory_movements_reference_idx").on(table.referenceType, table.referenceId),
     index("inventory_movements_created_at_idx").on(table.createdAt),
     check("inventory_movements_quantity_positive", sql`${table.quantity} > 0`),
-  ]
+  ],
 );
 
 export const inventoryReservations = snakeCase.table(
@@ -867,9 +812,6 @@ export const inventoryReservations = snakeCase.table(
     index("inventory_reservations_expires_at_idx").on(table.expiresAt),
     index("inventory_reservations_cart_idx").on(table.cartId),
     index("inventory_reservations_order_idx").on(table.orderId),
-    check(
-      "inventory_reservations_quantity_positive",
-      sql`${table.quantity} > 0`
-    ),
-  ]
+    check("inventory_reservations_quantity_positive", sql`${table.quantity} > 0`),
+  ],
 );

@@ -2,67 +2,34 @@
   "version": "8",
   "dialect": "postgres",
   "id": "56c4068f-f1af-4108-9e29-c0cd1c0f8097",
-  "prevIds": [
-    "a1670695-1153-4d3f-b76b-bdeea74b50fb"
-  ],
+  "prevIds": ["a1670695-1153-4d3f-b76b-bdeea74b50fb"],
   "ddl": [
     {
-      "values": [
-        "product",
-        "variant",
-        "both"
-      ],
+      "values": ["product", "variant", "both"],
       "name": "attribute_applies_to",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "string",
-        "number",
-        "boolean",
-        "enum",
-        "multi_enum",
-        "date",
-        "json"
-      ],
+      "values": ["string", "number", "boolean", "enum", "multi_enum", "date", "json"],
       "name": "attribute_type",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "active",
-        "inactive",
-        "processing",
-        "failed"
-      ],
+      "values": ["active", "inactive", "processing", "failed"],
       "name": "image_status",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "main",
-        "gallery",
-        "thumbnail",
-        "detail",
-        "lifestyle",
-        "packaging",
-        "variant"
-      ],
+      "values": ["main", "gallery", "thumbnail", "detail", "lifestyle", "packaging", "variant"],
       "name": "image_type",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "warehouse",
-        "store",
-        "virtual",
-        "supplier",
-        "kitchen"
-      ],
+      "values": ["warehouse", "store", "virtual", "supplier", "kitchen"],
       "name": "inventory_location_type",
       "entityType": "enums",
       "schema": "public"
@@ -86,54 +53,31 @@
       "schema": "public"
     },
     {
-      "values": [
-        "active",
-        "confirmed",
-        "expired",
-        "released",
-        "cancelled"
-      ],
+      "values": ["active", "confirmed", "expired", "released", "cancelled"],
       "name": "inventory_reservation_status",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "active",
-        "inactive",
-        "archived"
-      ],
+      "values": ["active", "inactive", "archived"],
       "name": "price_list_status",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "draft",
-        "active",
-        "inactive",
-        "archived"
-      ],
+      "values": ["draft", "active", "inactive", "archived"],
       "name": "product_status",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "visible",
-        "hidden",
-        "internal_only"
-      ],
+      "values": ["visible", "hidden", "internal_only"],
       "name": "product_visibility",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "active",
-        "inactive",
-        "archived"
-      ],
+      "values": ["active", "inactive", "archived"],
       "name": "record_status",
       "entityType": "enums",
       "schema": "public"
@@ -155,52 +99,31 @@
       "schema": "public"
     },
     {
-      "values": [
-        "unit",
-        "weight",
-        "volume",
-        "length",
-        "package"
-      ],
+      "values": ["unit", "weight", "volume", "length", "package"],
       "name": "unit_type",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "active",
-        "inactive",
-        "archived"
-      ],
+      "values": ["active", "inactive", "archived"],
       "name": "variant_status",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "active",
-        "inactive"
-      ],
+      "values": ["active", "inactive"],
       "name": "business_vertical_status",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "active",
-        "inactive"
-      ],
+      "values": ["active", "inactive"],
       "name": "catalog_template_status",
       "entityType": "enums",
       "schema": "public"
     },
     {
-      "values": [
-        "active",
-        "inactive",
-        "suspended",
-        "archived"
-      ],
+      "values": ["active", "inactive", "suspended", "archived"],
       "name": "tenant_status",
       "entityType": "enums",
       "schema": "public"
@@ -5062,14 +4985,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "schemaTo": "public",
       "tableTo": "user",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
       "name": "account_user_id_user_id_fkey",
@@ -5079,14 +4998,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "schemaTo": "public",
       "tableTo": "user",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
       "name": "session_user_id_user_id_fkey",
@@ -5096,14 +5011,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "categories_tenant_id_tenants_id_fkey",
@@ -5113,14 +5024,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "parent_id"
-      ],
+      "columns": ["parent_id"],
       "schemaTo": "public",
       "tableTo": "categories",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "SET NULL",
       "name": "categories_parent_id_categories_id_fkey",
@@ -5130,14 +5037,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "inventory_locations_tenant_id_tenants_id_fkey",
@@ -5147,14 +5050,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "inventory_movements_tenant_id_tenants_id_fkey",
@@ -5164,14 +5063,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "variant_id"
-      ],
+      "columns": ["variant_id"],
       "schemaTo": "public",
       "tableTo": "product_variants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "RESTRICT",
       "name": "inventory_movements_variant_id_product_variants_id_fkey",
@@ -5181,14 +5076,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "location_id"
-      ],
+      "columns": ["location_id"],
       "schemaTo": "public",
       "tableTo": "inventory_locations",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "RESTRICT",
       "name": "inventory_movements_location_id_inventory_locations_id_fkey",
@@ -5198,14 +5089,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "inventory_reservations_tenant_id_tenants_id_fkey",
@@ -5215,14 +5102,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "variant_id"
-      ],
+      "columns": ["variant_id"],
       "schemaTo": "public",
       "tableTo": "product_variants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "RESTRICT",
       "name": "inventory_reservations_variant_id_product_variants_id_fkey",
@@ -5232,14 +5115,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "location_id"
-      ],
+      "columns": ["location_id"],
       "schemaTo": "public",
       "tableTo": "inventory_locations",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "RESTRICT",
       "name": "inventory_reservations_location_id_inventory_locations_id_fkey",
@@ -5249,14 +5128,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "inventory_stocks_tenant_id_tenants_id_fkey",
@@ -5266,14 +5141,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "variant_id"
-      ],
+      "columns": ["variant_id"],
       "schemaTo": "public",
       "tableTo": "product_variants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "inventory_stocks_variant_id_product_variants_id_fkey",
@@ -5283,14 +5154,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "location_id"
-      ],
+      "columns": ["location_id"],
       "schemaTo": "public",
       "tableTo": "inventory_locations",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "inventory_stocks_location_id_inventory_locations_id_fkey",
@@ -5300,14 +5167,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "price_lists_tenant_id_tenants_id_fkey",
@@ -5317,14 +5180,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "product_attribute_definitions_tenant_id_tenants_id_fkey",
@@ -5334,14 +5193,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "category_id"
-      ],
+      "columns": ["category_id"],
       "schemaTo": "public",
       "tableTo": "categories",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "SET NULL",
       "name": "product_attribute_definitions_category_id_categories_id_fkey",
@@ -5351,14 +5206,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "product_images_tenant_id_tenants_id_fkey",
@@ -5368,14 +5219,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "product_id"
-      ],
+      "columns": ["product_id"],
       "schemaTo": "public",
       "tableTo": "products",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "product_images_product_id_products_id_fkey",
@@ -5385,14 +5232,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "variant_id"
-      ],
+      "columns": ["variant_id"],
       "schemaTo": "public",
       "tableTo": "product_variants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "product_images_variant_id_product_variants_id_fkey",
@@ -5402,14 +5245,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "product_variants_tenant_id_tenants_id_fkey",
@@ -5419,14 +5258,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "product_id"
-      ],
+      "columns": ["product_id"],
       "schemaTo": "public",
       "tableTo": "products",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "product_variants_product_id_products_id_fkey",
@@ -5436,14 +5271,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "unit_id"
-      ],
+      "columns": ["unit_id"],
       "schemaTo": "public",
       "tableTo": "unit_definitions",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "SET NULL",
       "name": "product_variants_unit_id_unit_definitions_id_fkey",
@@ -5453,14 +5284,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "products_tenant_id_tenants_id_fkey",
@@ -5470,14 +5297,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "category_id"
-      ],
+      "columns": ["category_id"],
       "schemaTo": "public",
       "tableTo": "categories",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "SET NULL",
       "name": "products_category_id_categories_id_fkey",
@@ -5487,14 +5310,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "unit_definitions_tenant_id_tenants_id_fkey",
@@ -5504,14 +5323,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "base_unit_id"
-      ],
+      "columns": ["base_unit_id"],
       "schemaTo": "public",
       "tableTo": "unit_definitions",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "SET NULL",
       "name": "unit_definitions_base_unit_id_unit_definitions_id_fkey",
@@ -5521,14 +5336,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "variant_prices_tenant_id_tenants_id_fkey",
@@ -5538,14 +5349,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "variant_id"
-      ],
+      "columns": ["variant_id"],
       "schemaTo": "public",
       "tableTo": "product_variants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "variant_prices_variant_id_product_variants_id_fkey",
@@ -5555,14 +5362,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "price_list_id"
-      ],
+      "columns": ["price_list_id"],
       "schemaTo": "public",
       "tableTo": "price_lists",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "variant_prices_price_list_id_price_lists_id_fkey",
@@ -5572,14 +5375,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "vertical_id"
-      ],
+      "columns": ["vertical_id"],
       "schemaTo": "public",
       "tableTo": "business_verticals",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "RESTRICT",
       "name": "catalog_templates_vertical_id_business_verticals_id_fkey",
@@ -5589,14 +5388,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "schemaTo": "public",
       "tableTo": "tenants",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "CASCADE",
       "name": "tenant_catalog_settings_tenant_id_tenants_id_fkey",
@@ -5606,14 +5401,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "vertical_id"
-      ],
+      "columns": ["vertical_id"],
       "schemaTo": "public",
       "tableTo": "business_verticals",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "RESTRICT",
       "name": "tenant_catalog_settings_vertical_id_business_verticals_id_fkey",
@@ -5623,14 +5414,10 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "catalog_template_id"
-      ],
+      "columns": ["catalog_template_id"],
       "schemaTo": "public",
       "tableTo": "catalog_templates",
-      "columnsTo": [
-        "id"
-      ],
+      "columnsTo": ["id"],
       "onUpdate": "CASCADE",
       "onDelete": "SET NULL",
       "name": "tenant_catalog_settings_vwdmxEGjQBkX_fkey",
@@ -5639,9 +5426,7 @@
       "table": "tenant_catalog_settings"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "account_pkey",
       "schema": "public",
@@ -5649,9 +5434,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "jwks_pkey",
       "schema": "public",
@@ -5659,9 +5442,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "session_pkey",
       "schema": "public",
@@ -5669,9 +5450,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "user_pkey",
       "schema": "public",
@@ -5679,9 +5458,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "verification_pkey",
       "schema": "public",
@@ -5689,9 +5466,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "categories_pkey",
       "schema": "public",
@@ -5699,9 +5474,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "inventory_locations_pkey",
       "schema": "public",
@@ -5709,9 +5482,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "inventory_movements_pkey",
       "schema": "public",
@@ -5719,9 +5490,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "inventory_reservations_pkey",
       "schema": "public",
@@ -5729,9 +5498,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "inventory_stocks_pkey",
       "schema": "public",
@@ -5739,9 +5506,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "price_lists_pkey",
       "schema": "public",
@@ -5749,9 +5514,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "product_attribute_definitions_pkey",
       "schema": "public",
@@ -5759,9 +5522,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "product_images_pkey",
       "schema": "public",
@@ -5769,9 +5530,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "product_variants_pkey",
       "schema": "public",
@@ -5779,9 +5538,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "products_pkey",
       "schema": "public",
@@ -5789,9 +5546,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "unit_definitions_pkey",
       "schema": "public",
@@ -5799,9 +5554,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "variant_prices_pkey",
       "schema": "public",
@@ -5809,9 +5562,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "business_verticals_pkey",
       "schema": "public",
@@ -5819,9 +5570,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "catalog_templates_pkey",
       "schema": "public",
@@ -5829,9 +5578,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "tenant_id"
-      ],
+      "columns": ["tenant_id"],
       "nameExplicit": false,
       "name": "tenant_catalog_settings_pkey",
       "schema": "public",
@@ -5839,9 +5586,7 @@
       "entityType": "pks"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "tenants_pkey",
       "schema": "public",
@@ -5850,9 +5595,7 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "token"
-      ],
+      "columns": ["token"],
       "nullsNotDistinct": false,
       "name": "session_token_key",
       "schema": "public",
@@ -5861,9 +5604,7 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "email"
-      ],
+      "columns": ["email"],
       "nullsNotDistinct": false,
       "name": "user_email_key",
       "schema": "public",
