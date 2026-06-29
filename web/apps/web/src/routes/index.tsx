@@ -1,17 +1,17 @@
-import { buttonVariants } from "@cetus/ui/components/button"
+import { buttonVariants } from "@cetus/ui/components/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@cetus/ui/components/card"
-import { createFileRoute } from "@tanstack/react-router"
-import { Clock3, Hammer, Sparkles } from "lucide-react"
+} from "@cetus/ui/components/card";
+import { createFileRoute } from "@tanstack/react-router";
+import { Clock3, Hammer, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
-})
+});
 
 function HomeComponent() {
   return (
@@ -32,9 +32,8 @@ function HomeComponent() {
                 Estamos construyendo esta experiencia
               </CardTitle>
               <CardDescription className="max-w-2xl text-base">
-                Cetus se encuentra en desarrollo. Estamos afinando los detalles
-                para ofrecerte una plataforma estable, clara y lista para
-                trabajar.
+                Cetus se encuentra en desarrollo. Estamos afinando los detalles para ofrecerte una
+                plataforma estable, clara y lista para trabajar.
               </CardDescription>
             </div>
           </CardHeader>
@@ -46,8 +45,8 @@ function HomeComponent() {
                 <div className="flex flex-col gap-1">
                   <h2 className="font-medium">Diseño en progreso</h2>
                   <p className="text-muted-foreground">
-                    Pronto tendrás acceso a las funciones principales y a una
-                    navegación más completa.
+                    Pronto tendrás acceso a las funciones principales y a una navegación más
+                    completa.
                   </p>
                 </div>
               </div>
@@ -56,8 +55,8 @@ function HomeComponent() {
                 <div className="flex flex-col gap-1">
                   <h2 className="font-medium">Lanzamiento en preparación</h2>
                   <p className="text-muted-foreground">
-                    Mientras tanto, seguimos validando la experiencia para que
-                    todo funcione como esperas.
+                    Mientras tanto, seguimos validando la experiencia para que todo funcione como
+                    esperas.
                   </p>
                 </div>
               </div>
@@ -78,5 +77,5 @@ function HomeComponent() {
         </Card>
       </div>
     </main>
-  )
+  );
 }

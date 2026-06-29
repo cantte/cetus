@@ -1,5 +1,5 @@
-import { auth } from "@cetus/auth"
-import { createFileRoute } from "@tanstack/react-router"
+import { auth } from "@cetus/auth";
+import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/api/auth/$")({
   server: {
@@ -8,4 +8,4 @@ export const Route = createFileRoute("/api/auth/$")({
       POST: ({ request }) => auth.handler(request),
     },
   },
-})
+});

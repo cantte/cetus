@@ -1,17 +1,12 @@
-import { Toaster } from "@cetus/ui/components/sonner"
-import {
-  HeadContent,
-  Outlet,
-  Scripts,
-  createRootRouteWithContext,
-} from "@tanstack/react-router"
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools"
+import { Toaster } from "@cetus/ui/components/sonner";
+import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-import appCss from "../index.css?url"
+import appCss from "../index.css?url";
 
 export type RouterAppContext = {
-  user?: unknown
-}
+  user?: unknown;
+};
 
 export const Route = createRootRouteWithContext<RouterAppContext>()({
   component: RootDocument,
@@ -36,7 +31,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
       },
     ],
   }),
-})
+});
 
 function RootDocument() {
   return (
@@ -53,5 +48,5 @@ function RootDocument() {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }

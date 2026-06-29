@@ -1,6 +1,6 @@
-import { defineRelations } from "drizzle-orm"
+import { defineRelations } from "drizzle-orm";
 
-import * as schema from "./schema"
+import * as schema from "./schema";
 
 export const relations = defineRelations(schema, (r) => ({
   account: {
@@ -19,4 +19,4 @@ export const relations = defineRelations(schema, (r) => ({
       to: r.user.id,
     }),
   },
-}))
+}));

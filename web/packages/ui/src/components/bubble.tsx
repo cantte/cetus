@@ -1,9 +1,9 @@
-import { mergeProps } from "@base-ui/react/merge-props"
-import { useRender } from "@base-ui/react/use-render"
-import { cn } from "@cetus/ui/lib/utils"
-import { cva } from "class-variance-authority"
-import type { VariantProps } from "class-variance-authority"
-import * as React from "react"
+import { mergeProps } from "@base-ui/react/merge-props";
+import { useRender } from "@base-ui/react/use-render";
+import { cn } from "@cetus/ui/lib/utils";
+import { cva } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
+import * as React from "react";
 
 function BubbleGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -12,7 +12,7 @@ function BubbleGroup({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("flex min-w-0 flex-col gap-2", className)}
       {...props}
     />
-  )
+  );
 }
 
 const bubbleVariants = cva(
@@ -39,8 +39,8 @@ const bubbleVariants = cva(
           "*:data-[slot=bubble-content]:bg-[oklch(from_var(--primary)_0.93_calc(c*0.4)_h)] *:data-[slot=bubble-content]:text-foreground dark:*:data-[slot=bubble-content]:bg-[oklch(from_var(--primary)_0.3_calc(c*0.4)_h)] [&>[data-slot=bubble-content]:is(button,a):hover]:bg-[oklch(from_var(--primary)_0.88_calc(c*0.5)_h)] dark:[&>[data-slot=bubble-content]:is(button,a):hover]:bg-[oklch(from_var(--primary)_0.35_calc(c*0.5)_h)]",
       },
     },
-  }
-)
+  },
+);
 
 function Bubble({
   variant = "default",
@@ -49,7 +49,7 @@ function Bubble({
   ...props
 }: React.ComponentProps<"div"> &
   VariantProps<typeof bubbleVariants> & {
-    align?: "start" | "end"
+    align?: "start" | "end";
   }) {
   return (
     <div
@@ -59,30 +59,26 @@ function Bubble({
       className={cn(bubbleVariants({ variant }), className)}
       {...props}
     />
-  )
+  );
 }
 
-function BubbleContent({
-  className,
-  render,
-  ...props
-}: useRender.ComponentProps<"div">) {
+function BubbleContent({ className, render, ...props }: useRender.ComponentProps<"div">) {
   return useRender({
     defaultTagName: "div",
     props: mergeProps<"div">(
       {
         className: cn(
           "w-fit max-w-full min-w-0 overflow-hidden rounded-none border border-transparent px-2.5 py-2 text-xs leading-relaxed wrap-break-word group-data-[align=end]/bubble:self-end [button]:text-left [button,a]:transition-colors [button,a]:outline-none [button,a]:focus-visible:border-ring [button,a]:focus-visible:ring-1 [button,a]:focus-visible:ring-ring/50",
-          className
+          className,
         ),
       },
-      props
+      props,
     ),
     render,
     state: {
       slot: "bubble-content",
     },
-  })
+  });
 }
 
 const bubbleReactionsVariants = cva(
@@ -102,8 +98,8 @@ const bubbleReactionsVariants = cva(
         top: "top-0 -translate-y-3/4",
       },
     },
-  }
-)
+  },
+);
 
 function BubbleReactions({
   side = "bottom",
@@ -111,8 +107,8 @@ function BubbleReactions({
   className,
   ...props
 }: React.ComponentProps<"div"> & {
-  align?: "start" | "end"
-  side?: "top" | "bottom"
+  align?: "start" | "end";
+  side?: "top" | "bottom";
 }) {
   return (
     <div
@@ -122,7 +118,7 @@ function BubbleReactions({
       className={cn(bubbleReactionsVariants({ align, side }), className)}
       {...props}
     />
-  )
+  );
 }
 
-export { BubbleGroup, Bubble, BubbleContent, BubbleReactions }
+export { BubbleGroup, Bubble, BubbleContent, BubbleReactions };
