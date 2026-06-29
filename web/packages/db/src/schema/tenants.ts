@@ -67,12 +67,12 @@ export type DefaultUnitTemplate = {
 
 export type DefaultBotFlowTemplate = {
   intent: string;
-  questions: Array<{
+  questions: {
     key: string;
     message: string;
     attributeCode?: string;
     required?: boolean;
-  }>;
+  }[];
 };
 
 export type CatalogTemplateMetadata = {
