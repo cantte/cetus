@@ -3,6 +3,7 @@
   "name": "cetus",
   "compatibility_date": "2026-06-28",
   "compatibility_flags": ["nodejs_compat"],
+  "keep_vars": true,
   "main": "@tanstack/react-start/server-entry",
   "observability": {
     "enabled": false,
