@@ -241,4 +241,116 @@ export const relations = defineRelations(schema, (r) => ({
       to: r.inventoryLocations.id,
     }),
   },
+
+  salesChannels: {
+    tenant: r.one.tenants({
+      from: r.salesChannels.tenantId,
+      to: r.tenants.id,
+    }),
+
+    connection: r.one.channelConnections({
+      from: r.salesChannels.id,
+      to: r.channelConnections.salesChannelId,
+    }),
+
+    publications: r.many.channelPublications(),
+    listingOverrides: r.many.channelListingOverrides(),
+    inventoryPolicies: r.many.channelInventoryPolicies(),
+    priceLists: r.many.channelPriceLists(),
+  },
+
+  channelConnections: {
+    tenant: r.one.tenants({
+      from: r.channelConnections.tenantId,
+      to: r.tenants.id,
+    }),
+
+    salesChannel: r.one.salesChannels({
+      from: r.channelConnections.salesChannelId,
+      to: r.salesChannels.id,
+    }),
+  },
+
+  channelPublications: {
+    tenant: r.one.tenants({
+      from: r.channelPublications.tenantId,
+      to: r.tenants.id,
+    }),
+
+    salesChannel: r.one.salesChannels({
+      from: r.channelPublications.salesChannelId,
+      to: r.salesChannels.id,
+    }),
+
+    product: r.one.products({
+      from: r.channelPublications.productId,
+      to: r.products.id,
+    }),
+
+    variant: r.one.productVariants({
+      from: r.channelPublications.variantId,
+      to: r.productVariants.id,
+    }),
+  },
+
+  channelListingOverrides: {
+    tenant: r.one.tenants({
+      from: r.channelListingOverrides.tenantId,
+      to: r.tenants.id,
+    }),
+
+    salesChannel: r.one.salesChannels({
+      from: r.channelListingOverrides.salesChannelId,
+      to: r.salesChannels.id,
+    }),
+
+    product: r.one.products({
+      from: r.channelListingOverrides.productId,
+      to: r.products.id,
+    }),
+
+    variant: r.one.productVariants({
+      from: r.channelListingOverrides.variantId,
+      to: r.productVariants.id,
+    }),
+
+    imageOverride: r.one.productImages({
+      from: r.channelListingOverrides.imageIdOverride,
+      to: r.productImages.id,
+    }),
+  },
+
+  channelInventoryPolicies: {
+    tenant: r.one.tenants({
+      from: r.channelInventoryPolicies.tenantId,
+      to: r.tenants.id,
+    }),
+
+    salesChannel: r.one.salesChannels({
+      from: r.channelInventoryPolicies.salesChannelId,
+      to: r.salesChannels.id,
+    }),
+
+    location: r.one.inventoryLocations({
+      from: r.channelInventoryPolicies.locationId,
+      to: r.inventoryLocations.id,
+    }),
+  },
+
+  channelPriceLists: {
+    tenant: r.one.tenants({
+      from: r.channelPriceLists.tenantId,
+      to: r.tenants.id,
+    }),
+
+    salesChannel: r.one.salesChannels({
+      from: r.channelPriceLists.salesChannelId,
+      to: r.salesChannels.id,
+    }),
+
+    priceList: r.one.priceLists({
+      from: r.channelPriceLists.priceListId,
+      to: r.priceLists.id,
+    }),
+  },
 }));
