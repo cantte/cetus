@@ -1,0 +1,23 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "logger",
+    srcs = [
+        "doc.go",
+        "event.go",
+        "fault_handler.go",
+        "global.go",
+        "level.go",
+        "multihandler.go",
+        "pretty.go",
+        "sampler.go",
+        "slog.go",
+        "wide.go",
+    ],
+    importpath = "cetus/pkg/logger",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/fault",
+        "@org_golang_x_term//:term",
+    ],
+)
