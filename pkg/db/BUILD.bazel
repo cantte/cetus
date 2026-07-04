@@ -1,0 +1,34 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "db",
+    srcs = [
+        "custom_types.go",
+        "database.go",
+        "doc.go",
+        "generate.go",
+        "interface.go",
+        "models_generated.go",
+        "querier_generated.go",
+        "queries.go",
+        "replica.go",
+        "traced_tx.go",
+        "tx.go",
+        "users_find_by_id.sql_generated.go",
+    ],
+    importpath = "cetus/pkg/db",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/assert",
+        "//pkg/codes",
+        "//pkg/fault",
+        "//pkg/logger",
+        "//pkg/otel/tracing",
+        "//pkg/pg/metrics",
+        "//pkg/retry",
+        "@com_github_google_uuid//:uuid",
+        "@com_github_jackc_pgx_v5//:pgx",
+        "@com_github_jackc_pgx_v5//stdlib",
+        "@io_opentelemetry_go_otel//attribute",
+    ],
+)
