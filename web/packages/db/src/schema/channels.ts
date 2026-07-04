@@ -41,18 +41,15 @@ export const channelProviderEnum = pgEnum("channel_provider", [
   "custom",
 ]);
 
-export const channelPublicationStatusEnum = pgEnum(
-  "channel_publication_status",
-  [
-    "draft",
-    "pending_sync",
-    "published",
-    "unpublished",
-    "rejected",
-    "failed",
-    "archived",
-  ]
-);
+export const channelPublicationStatusEnum = pgEnum("channel_publication_status", [
+  "draft",
+  "pending_sync",
+  "published",
+  "unpublished",
+  "rejected",
+  "failed",
+  "archived",
+]);
 
 export const channelSyncStatusEnum = pgEnum("channel_sync_status", [
   "pending",
@@ -115,14 +112,11 @@ export const salesChannels = snakeCase.table(
     deletedAt: timestamp({ withTimezone: true }),
   },
   (table) => [
-    uniqueIndex("sales_channels_tenant_type_idx").on(
-      table.tenantId,
-      table.type
-    ),
+    uniqueIndex("sales_channels_tenant_type_idx").on(table.tenantId, table.type),
     index("sales_channels_tenant_idx").on(table.tenantId),
     index("sales_channels_type_idx").on(table.type),
     index("sales_channels_status_idx").on(table.status),
-  ]
+  ],
 );
 
 export const channelConnections = snakeCase.table(
@@ -172,16 +166,12 @@ export const channelConnections = snakeCase.table(
       .notNull(),
   },
   (table) => [
-    uniqueIndex("channel_connections_sales_channel_idx").on(
-      table.salesChannelId
-    ),
+    uniqueIndex("channel_connections_sales_channel_idx").on(table.salesChannelId),
     index("channel_connections_tenant_idx").on(table.tenantId),
     index("channel_connections_provider_idx").on(table.provider),
     index("channel_connections_status_idx").on(table.status),
-    index("channel_connections_external_catalog_idx").on(
-      table.externalCatalogId
-    ),
-  ]
+    index("channel_connections_external_catalog_idx").on(table.externalCatalogId),
+  ],
 );
 
 export const channelPublications = snakeCase.table(
@@ -238,7 +228,7 @@ export const channelPublications = snakeCase.table(
     uniqueIndex("channel_publications_channel_product_variant_idx").on(
       table.salesChannelId,
       table.productId,
-      table.variantId
+      table.variantId,
     ),
     index("channel_publications_tenant_idx").on(table.tenantId),
     index("channel_publications_channel_idx").on(table.salesChannelId),
@@ -246,13 +236,9 @@ export const channelPublications = snakeCase.table(
     index("channel_publications_variant_idx").on(table.variantId),
     index("channel_publications_status_idx").on(table.status),
     index("channel_publications_sync_status_idx").on(table.syncStatus),
-    index("channel_publications_external_product_idx").on(
-      table.externalProductId
-    ),
-    index("channel_publications_external_retailer_idx").on(
-      table.externalRetailerId
-    ),
-  ]
+    index("channel_publications_external_product_idx").on(table.externalProductId),
+    index("channel_publications_external_retailer_idx").on(table.externalRetailerId),
+  ],
 );
 
 export const channelListingOverrides = snakeCase.table(
@@ -314,7 +300,7 @@ export const channelListingOverrides = snakeCase.table(
     uniqueIndex("channel_listing_overrides_channel_product_variant_idx").on(
       table.salesChannelId,
       table.productId,
-      table.variantId
+      table.variantId,
     ),
     index("channel_listing_overrides_tenant_idx").on(table.tenantId),
     index("channel_listing_overrides_channel_idx").on(table.salesChannelId),
@@ -322,9 +308,9 @@ export const channelListingOverrides = snakeCase.table(
     index("channel_listing_overrides_variant_idx").on(table.variantId),
     check(
       "channel_listing_overrides_price_non_negative",
-      sql`${table.priceOverride} IS NULL OR ${table.priceOverride} >= 0`
+      sql`${table.priceOverride} IS NULL OR ${table.priceOverride} >= 0`,
     ),
-  ]
+  ],
 );
 
 export const channelInventoryPolicies = snakeCase.table(
@@ -372,20 +358,17 @@ export const channelInventoryPolicies = snakeCase.table(
   (table) => [
     uniqueIndex("channel_inventory_policies_channel_location_idx").on(
       table.salesChannelId,
-      table.locationId
+      table.locationId,
     ),
     index("channel_inventory_policies_tenant_idx").on(table.tenantId),
     index("channel_inventory_policies_channel_idx").on(table.salesChannelId),
     index("channel_inventory_policies_location_idx").on(table.locationId),
     check(
       "channel_inventory_policies_reservation_ttl_non_negative",
-      sql`${table.reservationTtlMinutes} >= 0`
+      sql`${table.reservationTtlMinutes} >= 0`,
     ),
-    check(
-      "channel_inventory_policies_safety_stock_non_negative",
-      sql`${table.safetyStock} >= 0`
-    ),
-  ]
+    check("channel_inventory_policies_safety_stock_non_negative", sql`${table.safetyStock} >= 0`),
+  ],
 );
 
 export const channelPriceLists = snakeCase.table(
@@ -428,11 +411,11 @@ export const channelPriceLists = snakeCase.table(
   (table) => [
     uniqueIndex("channel_price_lists_channel_price_list_idx").on(
       table.salesChannelId,
-      table.priceListId
+      table.priceListId,
     ),
     index("channel_price_lists_tenant_idx").on(table.tenantId),
     index("channel_price_lists_channel_idx").on(table.salesChannelId),
     index("channel_price_lists_price_list_idx").on(table.priceListId),
     index("channel_price_lists_priority_idx").on(table.priority),
-  ]
+  ],
 );
