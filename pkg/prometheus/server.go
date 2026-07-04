@@ -10,7 +10,6 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-
 func New() (*gin.Engine, error) {
 	r := gin.New()
 
