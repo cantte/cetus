@@ -1,0 +1,2 @@
+CREATE TYPE "product_type" AS ENUM('physical', 'service', 'digital', 'bundle', 'kit', 'custom', 'consumable', 'spare_part');--> statement-breakpoint
+ALTER TABLE "products" ALTER COLUMN "product_type" SET DATA TYPE "product_type" USING "product_type"::"product_type";

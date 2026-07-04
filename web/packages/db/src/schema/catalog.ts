@@ -113,6 +113,17 @@ export const inventoryReservationStatusEnum = pgEnum("inventory_reservation_stat
   "cancelled",
 ]);
 
+export const productTypeEnum = pgEnum("product_type", [
+  "physical",
+  "service",
+  "digital",
+  "bundle",
+  "kit",
+  "custom",
+  "consumable",
+  "spare_part",
+]);
+
 export type ProductAttributesJson = Record<string, unknown>;
 
 export type VariantAttributesJson = Record<string, unknown>;
@@ -299,7 +310,7 @@ export const products = snakeCase.table(
     shortDescription: text(),
 
     brand: text(),
-    productType: text(),
+    productType: productTypeEnum(),
 
     status: productStatusEnum().default("draft").notNull(),
     visibility: productVisibilityEnum().default("visible").notNull(),
