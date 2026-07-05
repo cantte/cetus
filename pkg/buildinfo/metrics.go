@@ -13,12 +13,12 @@ import (
 //
 // Labels: service, version, revision (full git SHA), goversion, build_time (RFC3339 UTC).
 var buildInfo = lazy.NewGaugeVec(prometheus.GaugeOpts{
-	Namespace: "wappiz",
+	Namespace: "cetus",
 	Name:      "build_info",
 	Help:      "Build metadata for the running service. Always 1; identity is in the labels.",
 }, []string{"service", "version", "revision", "goversion", "build_time"})
 
-// RegisterBuildInfoMetrics emits the wappiz_build_info gauge for the given
+// RegisterBuildInfoMetrics emits the cetus_build_info gauge for the given
 // service name, tagged with the link-time build identity (Version, Revision,
 // Go runtime version, BuildTime).
 //
