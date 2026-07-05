@@ -8,12 +8,8 @@ import (
 // Database defines the interface for database operations, providing access
 // to read and write replicas and the ability to close connections.
 type Database interface {
-	// RW returns the write (primary) replica for write operations
-	RW() *Replica
-
-	// RO returns the read replica for read operations
-	// If no read replica is configured, it returns the write replica
-	RO() *Replica
+	// Primary returns the primary database replica for read and write operations.
+	Primary() *Replica
 
 	// Close properly terminates all database connections
 	Close() error
