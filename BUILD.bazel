@@ -18,6 +18,14 @@ go_library(
 )
 
 go_binary(
+    name = "cetus",
+    out = "bin/cetus",
+    embed = [":cetus_lib"],
+    pure = "on",
+    visibility = ["//visibility:public"],
+)
+
+go_binary(
     name = "cetus_linux_amd64",
     out = "bin/cetus",
     embed = [":cetus_lib"],
