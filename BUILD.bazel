@@ -11,6 +11,10 @@ go_library(
     srcs = ["main.go"],
     importpath = "cetus",
     visibility = ["//visibility:private"],
+    deps = [
+        "//pkg/logger",
+        "//svc/api",
+    ],
 )
 
 go_binary(

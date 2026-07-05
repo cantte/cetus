@@ -7,7 +7,6 @@ import (
 )
 
 type Handler struct {
-
 }
 
 func (h *Handler) Method() string {

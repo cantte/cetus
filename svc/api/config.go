@@ -14,11 +14,11 @@ import (
 type LoggingConfig struct {
 	// SampleRate is the probability (0.0–1.0) of emitting a fast log event.
 	// Set to 1.0 to log everything.
-	SampleRate float64 `env:"LOG_SAMPLE_RATE, default=1.0"`
+	SampleRate float64 `env:"LOG_SAMPLE_RATE"`
 
 	// SlowThreshold is the duration above which a request is always logged
 	// regardless of SampleRate.
-	SlowThreshold time.Duration `env:"LOG_SLOW_THRESHOLD, default=5s"`
+	SlowThreshold time.Duration `env:"LOG_SLOW_THRESHOLD"`
 }
 
 // TracingConfig controls OpenTelemetry tracing and metrics export.
@@ -27,20 +27,20 @@ type LoggingConfig struct {
 type TracingConfig struct {
 
 	// SampleRate is the probability (0.0–1.0) that a trace is sampled.
-	SampleRate float64 `env:"LOG_SAMPLE_RATE, default=1.0"`
+	SampleRate float64 `env:"LOG_SAMPLE_RATE"`
 }
 
 // MetricsConfig controls Prometheus metrics exposition.
 type MetricsConfig struct {
 	// PrometheusPort is the TCP port where Prometheus-compatible metrics are served.
 	// Set to 0 to disable metrics exposure.
-	PrometheusPort int `env:"PROMETHEUS_PORT, default=9090"`
+	PrometheusPort int `env:"PROMETHEUS_PORT"`
 }
 
 type Observability struct {
-	Tracing *TracingConfig
-	Logging *LoggingConfig
-	Metrics *MetricsConfig
+	Tracing *TracingConfig `env:", noinit"`
+	Logging *LoggingConfig `env:", noinit"`
+	Metrics *MetricsConfig `env:", noinit"`
 }
 
 // Config holds all runtime configuration values for the API server,

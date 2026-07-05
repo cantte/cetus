@@ -47,6 +47,7 @@ func Run(ctx context.Context, cfg Config) error {
 	var err error
 	var shutdownGrafana func(context.Context) error
 	if cfg.Observability.Tracing != nil {
+		logger.Info("cfg.Observability.Tracing")
 		shutdownGrafana, err = otel.InitGrafana(ctx, otel.Config{
 			Application:        "api",
 			Version:            version.Version,
@@ -76,6 +77,7 @@ func Run(ctx context.Context, cfg Config) error {
 	r.Defer(database.Close)
 
 	if cfg.Observability.Metrics != nil {
+		logger.Info("cfg.Observability.Metrics")
 		prom, promErr := prometheus.NewWithRegistry(reg)
 		if promErr != nil {
 			return fmt.Errorf("unable to start prometheus: %w", promErr)
@@ -108,6 +110,7 @@ func Run(ctx context.Context, cfg Config) error {
 
 	// Server with graceful shutdown
 	srv := &http.Server{
+		Addr:         cfg.Port,
 		Handler:      g,
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 10 * time.Second,
