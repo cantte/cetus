@@ -35,7 +35,7 @@ bin/
 go.work
 go.work.sum
 
-/wappiz
+/cetus
 /inject
 # Added by goreleaser init:
 dist/
@@ -45,7 +45,6 @@ dist/
 bazel-bin
 bazel-out
 bazel-testlogs
-bazel-wappiz
 # Catch-all for any bazel-* worktree symlinks (e.g. bazel-audit-logs-ch-poc
 # when working in a git worktree under a non-default name).
 bazel-*
