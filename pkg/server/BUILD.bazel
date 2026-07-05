@@ -1,0 +1,18 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "server",
+    srcs = [
+        "handler.go",
+        "request_util.go",
+        "route.go",
+        "server.go",
+    ],
+    importpath = "cetus/pkg/server",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/codes",
+        "//pkg/fault",
+        "@com_github_gin_gonic_gin//:gin",
+    ],
+)

@@ -1,0 +1,17 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "routes",
+    srcs = [
+        "register.go",
+        "services.go",
+    ],
+    importpath = "cetus/svc/api/routes",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/db",
+        "//pkg/server",
+        "//svc/api/routes/v1/hello_world",
+        "@com_github_gin_gonic_gin//:gin",
+    ],
+)

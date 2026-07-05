@@ -1,0 +1,27 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "api",
+    srcs = [
+        "config.go",
+        "run.go",
+    ],
+    importpath = "cetus/svc/api",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/buildinfo",
+        "//pkg/db",
+        "//pkg/logger",
+        "//pkg/otel",
+        "//pkg/prometheus",
+        "//pkg/prometheus/lazy",
+        "//pkg/runner",
+        "//svc/api/routes",
+        "@com_github_gin_gonic_gin//:gin",
+        "@com_github_joho_godotenv//:godotenv",
+        "@com_github_prometheus_client_golang//prometheus",
+        "@com_github_prometheus_client_golang//prometheus/collectors",
+        "@com_github_prometheus_common//version",
+        "@com_github_sethvargo_go_envconfig//:go-envconfig",
+    ],
+)

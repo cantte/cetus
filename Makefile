@@ -28,7 +28,7 @@ generate:
 .PHONY: fmt
 fmt: ## Format code
 	go fmt ./...
-	cd web && pnpm run fix
+	cd web && pnpm run format
 
 .PHONY: test
 test: ## Run app tests
